@@ -36,15 +36,11 @@ dim(wv6)
 
 #Missing data
 cm <- colSums(is.na(wv6))
-cm
 pm <- colMeans(is.na(wv6))
-pm
 
 #Observed data
 co <- colSums(!is.na(wv6))
-co
 po <- colMeans(!is.na(wv6))
-po
 
 # Double check using Missing data pattern
 pat <- md.pattern(wv6, plot = FALSE)
@@ -56,7 +52,6 @@ as.numeric(rownames(pat))
 
 #Covariance coverage
 cc <- md.pairs(wv6)$rr / nrow(wv6)
-cc
 
 ## Summarize coverages:
 range(cc)
@@ -241,7 +236,6 @@ lapply(fits, summary)
 
 ### Perform the cross-validation:
 cve <- cv.lm(data = train, models = mods, K = 10, seed = 235711)
-cve
 
 ## 3a) When comparing the models you tested in (2) based on their relative
 ##     cross-validation errors, which model should be preferred?
